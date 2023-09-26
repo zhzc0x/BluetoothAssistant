@@ -7,5 +7,5 @@ Compose版Android蓝牙助手，基于 [BluetoothClient]: https://github.com/zhz
 
 # 下载
 
-点击下载 [app-release1.0]: https://github.com/zhzc0x/BluetoothAssistant/blob/master/app/release/app-release.apk
+前往下载: https://github.com/zhzc0x/BluetoothAssistant/blob/master/app/release/app-release.apk
 
