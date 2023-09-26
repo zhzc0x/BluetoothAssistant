@@ -37,7 +37,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.DpOffset
@@ -53,6 +52,7 @@ import com.zhzc0x.bluetooth.client.Device
 import com.zhzc0x.bluetooth.client.Service
 import com.zhzch0x.bluetooth.assistant.R
 import com.zhzch0x.bluetooth.assistant.bean.LogoutInfo
+import com.zhzch0x.bluetooth.assistant.ext.getVersionName
 import com.zhzch0x.bluetooth.assistant.ui.theme.ColorLogoutDebug
 import com.zhzch0x.bluetooth.assistant.ui.theme.ColorLogoutError
 import com.zhzch0x.bluetooth.assistant.ui.widgets.ChangeMtuDialog
@@ -93,6 +93,7 @@ class MainActivity : ComposeBaseActivity() {
     private var showScanDialog by mutableStateOf(false)
     private var scanning = mutableStateOf(true)
     private var scanDeviceList = mutableStateListOf<Device>()
+    private var appTitle = ""
 
     override fun initData() {
         val logFlow = channelFlow{
@@ -117,13 +118,14 @@ class MainActivity : ComposeBaseActivity() {
                 scrollToBottom = !scrollToBottom
             }
         }
+        appTitle = "${getString(R.string.app_name)}v${getVersionName(this@MainActivity)}"
     }
 
     @ExperimentalMaterial3Api
     @Composable
     override fun Content() {
         Scaffold(Modifier.fillMaxSize(), topBar = {
-            TopBar(title = stringResource(R.string.app_name), showBackButton = false)
+            TopBar(title=appTitle, showBackButton = false)
         }){ paddingValues ->
             Column(Modifier.padding(start = 14.dp, top=paddingValues.calculateTopPadding(), end=14.dp)) {
                 Row(Modifier.padding(top = 12.dp).height(40.dp), verticalAlignment = Alignment.CenterVertically) {

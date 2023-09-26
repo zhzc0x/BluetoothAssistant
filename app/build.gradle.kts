@@ -20,9 +20,24 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("${rootDir}/config/bluetoothAssistant.jks")
+            storePassword = "bluetoothassistant123456"
+            keyAlias = "ba"
+            keyPassword = "ba123456"
+        }
+    }
+
     buildTypes {
+        getByName("debug") {
+            isDebuggable = true
+            versionNameSuffix = "-debug"
+        }
         release {
-            isMinifyEnabled = false
+            isDebuggable = false
+            isMinifyEnabled = true
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
