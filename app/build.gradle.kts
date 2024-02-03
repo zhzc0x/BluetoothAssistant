@@ -82,5 +82,5 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    implementation("com.zhzc0x.bluetooth:client-android:1.0.2-SNAPSHOT")
+    implementation("com.zhzc0x.bluetooth:client-android:1.0.2")
 }
