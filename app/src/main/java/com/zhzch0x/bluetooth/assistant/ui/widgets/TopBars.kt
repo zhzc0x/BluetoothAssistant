@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -28,7 +29,7 @@ fun TopBar(modifier: Modifier = Modifier
     Box(modifier) {
         if(showBackButton){
             IconButton(onClick=onBack!!, Modifier.align(Alignment.CenterStart)) {
-                Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
+                Icon(imageVector = Icons.AutoMirrored.Default.ArrowBack, contentDescription = "Back")
             }
         }
         Text(text = title, Modifier.align(Alignment.Center),
