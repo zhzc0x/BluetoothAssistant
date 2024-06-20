@@ -1,7 +1,6 @@
 package com.zhzch0x.bluetooth.assistant
 
 import android.app.Application
-import com.zhzc0x.bluetooth.BuildConfig
 import timber.log.Timber
 
 class MyApplication: Application() {

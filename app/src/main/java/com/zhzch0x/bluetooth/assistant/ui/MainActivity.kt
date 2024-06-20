@@ -137,7 +137,7 @@ class MainActivity : ComposeBaseActivity() {
                                 expanded = true
                             }.padding(8.dp), fontSize = 16.sp, textAlign = TextAlign.Center)
                     DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-                        ClientType.values().forEach { clientType ->
+                        ClientType.entries.forEach { clientType ->
                             DropdownMenuItem(text = {
                                 Text(text = "$clientType", fontSize = 16.sp)
                             }, onClick = {
@@ -238,6 +238,7 @@ class MainActivity : ComposeBaseActivity() {
                 scanning.value = false
                 stopScanDevice()
             })
+            Timber.d("切换蓝牙类型：$bluetoothType")
         }
     }
 
