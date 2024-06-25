@@ -49,7 +49,10 @@ fun ProgressDialog(show: MutableState<Boolean>, progress: Float) = AnimatedVisib
                 .shadow(4.dp, RoundedCornerShape(8.dp))
                 .background(Color.White)
                 .padding(24.dp)) {
-            LinearProgressIndicator(progress, Modifier.fillMaxWidth())
+            LinearProgressIndicator(
+                progress = { progress },
+                modifier = Modifier.fillMaxWidth(),
+            )
         }
     }
 }

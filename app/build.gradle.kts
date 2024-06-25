@@ -11,8 +11,8 @@ android {
         applicationId = "com.zhzch0x.bluetooth.assistant"
         minSdk = 21
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -83,5 +83,5 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    implementation("com.zhzc0x.bluetooth:client-android:1.0.4-SNAPSHOT")
+    implementation("com.zhzc0x.bluetooth:client-android:1.0.4")
 }

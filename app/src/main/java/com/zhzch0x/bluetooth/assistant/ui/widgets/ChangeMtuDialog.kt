@@ -10,13 +10,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -43,9 +44,9 @@ fun ChangeMtuDialog(onDismiss: () -> Unit, onConfirmMtu: (Int) -> Unit){
                 Text("修改mtu", Modifier.padding(top=14.dp, bottom = 14.dp),
                     fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
-            Divider(Modifier.fillMaxWidth().height(0.8.dp), color = ColorDivider)
+            HorizontalDivider(Modifier.fillMaxWidth().height(0.8.dp), color = ColorDivider)
             var inputText by remember { mutableStateOf("") }
-            var inputMtu by remember { mutableStateOf(0) }
+            var inputMtu by remember { mutableIntStateOf(0) }
             var inputError by remember { mutableStateOf(false) }
             Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center){
                 TextField(inputText, { text ->
@@ -60,7 +61,7 @@ fun ChangeMtuDialog(onDismiss: () -> Unit, onConfirmMtu: (Int) -> Unit){
                     Text("mtu范围23~512")
                 }, keyboardOptions= KeyboardOptions(keyboardType= KeyboardType.Number))
             }
-            Divider(Modifier.fillMaxWidth().height(0.8.dp), color = ColorDivider)
+            HorizontalDivider(Modifier.fillMaxWidth().height(0.8.dp), color = ColorDivider)
             Box(Modifier.fillMaxWidth().height(50.dp).clickable {
                 if(inputMtu !in mtuRange){
                     onDismiss()

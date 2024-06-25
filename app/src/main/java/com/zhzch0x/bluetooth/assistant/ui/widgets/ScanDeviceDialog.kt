@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -70,7 +71,7 @@ fun ScanDeviceDialog(scanning: MutableState<Boolean>, deviceList: SnapshotStateL
                 }
             }
         }
-        Divider(Modifier.fillMaxWidth().height(0.8.dp), color = ColorDivider)
+        HorizontalDivider(Modifier.fillMaxWidth().height(0.8.dp), color = ColorDivider)
         var selectedDevice by remember { mutableStateOf<Device?>(null) }
         LazyColumn(Modifier.fillMaxWidth().weight(1f)){
             items(deviceList){ device ->
@@ -86,7 +87,7 @@ fun ScanDeviceDialog(scanning: MutableState<Boolean>, deviceList: SnapshotStateL
                 }
             }
         }
-        Divider(Modifier.fillMaxWidth().height(0.8.dp), color = ColorDivider)
+        HorizontalDivider(Modifier.fillMaxWidth().height(0.8.dp), color = ColorDivider)
         Box(Modifier.fillMaxWidth().height(50.dp).clickable {
             scanning.value = false
             onCancel()
